@@ -15,11 +15,11 @@ public class IntroActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager_intro);
         myadapter = new SlideAdapter(this);
         viewPager.setAdapter(myadapter);
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout_intro);
         tabLayout.setupWithViewPager(viewPager, true);
     }
 }

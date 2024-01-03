@@ -22,5 +22,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/slide1_image"/>
 
+
+
+
+
 </RelativeLayout>
 

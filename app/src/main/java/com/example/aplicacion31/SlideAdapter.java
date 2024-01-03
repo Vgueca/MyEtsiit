@@ -1,5 +1,6 @@
 package com.example.aplicacion31;
 
+import android.app.Activity;
 import android.content.Context;
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -48,6 +49,7 @@ public class SlideAdapter extends PagerAdapter {
             button.setOnClickListener(v -> {
                 Intent mainIntent = new Intent(context, MainActivity.class);
                 context.startActivity(mainIntent);
+                ((Activity)context).finish();
             });
         }
 
