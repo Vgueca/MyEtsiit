@@ -1,0 +1,44 @@
+<!-- activity_localizacion.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Contenedor para el fragmento -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerLocalizacion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigationViewLocalizacion"
+        android:layout_marginBottom="46dp" />
+
+    <!-- Barra de navegación inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewLocalizacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"
+        android:background="@color/white"/>
+
+    <!-- RecyclerView para el menú desplazable -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLocations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationViewLocalizacion"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/background_light"
+        android:elevation="4dp"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:clipChildren="false"/>
+
+    <TextView
+        android:id="@+id/textViewCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Pestaña Localización" />
+</RelativeLayout>

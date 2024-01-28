@@ -1,7 +1,14 @@
 <resources>
-    <string name="app_name">Aplicacion31</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Profile</string>
+    <string name="app_name">MyEtsiit</string>
+    <string name="profile">Perfil</string>
+    <string name="home">Inicio</string>
+    <string name="escuchando">Escuchando…</string>
+    <string name="query_vacia">Introduzca un mensaje</string>
+    <string name="error_chat_conection">Hay un problema de comunicación y es imposible conectar al chat</string>
+    <string name="audio_permission_not_available">Permisos no disponibles. Pidiendo permisos para el uso del Audio.</string>
+    <string name="audio_permission_available">Permisos del Audio disponibles</string>
+    <string name="audio_permission_granted">Permisos del Audio garantizados</string>
+    <string name="audio_permission_denied">Permisos del Audio denegados</string>
+    <string name="fb_listening">Boton para realizar consultas mediante asistente de voz</string>
+    <string name="chatbot">Chatbot</string>
 </resources>

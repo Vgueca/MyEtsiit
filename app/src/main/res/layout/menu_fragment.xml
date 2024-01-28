@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ImageButton y TextView para COMEDOR -->
+
+    <ImageButton
+        android:id="@+id/Comedor"
+        android:layout_width="85dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="72dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/mesa_de_comedor" />
+
+    <!-- ImageButton y TextView para LOCALIZACION -->
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Comedor"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="-20dp"
+        android:layout_marginStart="70dp"
+        android:textStyle="bold"
+        android:text="COMEDOR" />
+
+    <ImageButton
+        android:id="@+id/Localizacion"
+        android:layout_width="67dp"
+        android:layout_height="57dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="79dp"
+        android:layout_marginBottom="82dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/localizacion" />
+
+    <TextView
+        android:id="@+id/texto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Localizacion"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="-30dp"
+        android:layout_marginStart="252dp"
+        android:textStyle="bold"
+        android:text="LOCALIZACIÓN" />
+
+
+
+</RelativeLayout>

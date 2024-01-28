@@ -1,0 +1,16 @@
+<!-- blur_fragment.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Contenedor para aplicar el efecto de desenfoque -->
+    <FrameLayout
+        android:id="@+id/blurContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Agrega aquí el contenido de activity_main -->
+
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "965406183282",
+    "project_id": "myetsiit",
+    "storage_bucket": "myetsiit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965406183282:android:4521cebe508d2a19a217eb",
+        "android_client_info": {
+          "package_name": "com.example.myetsiit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965406183282-odke8q4dbvftjfa50fd01e58ccbjjmv2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myetsiit",
+            "certificate_hash": "91c3d96c06289fcdc8bb7e4bb00ea6d8c05aec24"
+          }
+        },
+        {
+          "client_id": "965406183282-ekr8acaudtvmucd4ca17ktb56d8p9sdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnkbaWW54A66nrA7wjVdmQLhLT20nUXNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965406183282-ekr8acaudtvmucd4ca17ktb56d8p9sdq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

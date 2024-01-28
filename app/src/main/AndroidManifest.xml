@@ -2,6 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- como se piden permisos de camara hay que indicar si tener camar es indispensable o no para usar la app -->
+    <!-- he puesto que no pero en caso contrario habría que cambiar required a true -->
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+
+    <!-- permisos de ubicacion añadidos, no me deja añadir el segundo si no tengo añadido el primero -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- permiso para el acceso a internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--permiso para acceso a cámara -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--permiso para acceso a almacenamiento/galeria -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <!-- permiso para usar la vibracion -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+
+    <!-- Esto es necesario para que sepa abrir google maps -->
+    <queries>
+        <package android:name="com.google.android.apps.maps" />
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,26 +34,53 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Aplicacion31"
+        android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
-        <activity android:name=".SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".IntroActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+        <activity
+            android:name=".view.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"/>
+
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".view.ComedorActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".view.ComedorLlevarActivity"
+            android:excludeFromRecents="true">
+        </activity>
+
+
+
+        <activity
+            android:name=".view.LocalizationActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".view.FragmentDialogFlow">
+        </activity>
+
     </application>
 
 </manifest>

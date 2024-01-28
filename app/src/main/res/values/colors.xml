@@ -8,5 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
-    <color name="red_strong">#D32F2F</color> 
+    <color name="red_strong">#D32F2F</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#C4D8CD</color>
+    <color name="background">#EEEFF0</color>
+    <color name="titles">#1F5542</color>
+    <color name="splashBackground">#A4C4B4</color>
+    <!--  Translucido  -->
+    <color name="transparente">#DC000000</color>
+    <color name="bot_background">#B9D4F4E3</color>
+    <!--  Sombras en el Texto  -->
+    <color name="light_font">#C4D8CD</color>
+    <color name="text_shadow">#000000</color>
 </resources>
