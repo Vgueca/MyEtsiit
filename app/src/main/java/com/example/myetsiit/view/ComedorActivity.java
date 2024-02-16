@@ -7,7 +7,8 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myetsiit.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,7 +36,7 @@ public class ComedorActivity extends AppCompatActivity {
                 // Inject JavaScript to display only the specific part
                 webViewComedor.evaluateJavascript(
                         "(function() { " +
-                                "    var table = document.querySelector('#contenido > div.content_doku > div:nth-child(7) > table > tbody');" +
+                                "    var table = document.querySelector('#contenido > div.content_doku > div:nth-child(10) > table > tbody');" +
                                 "    if (table) {" +
                                 "        var style = '<style>" +
                                 "            .customDayStyle { font-weight: bold; color: white; background-color: #C20000; border-top: 20px solid white; }" + // Dark red background with white bold text and top white border
@@ -81,10 +82,6 @@ public class ComedorActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.navigation_profile) {
                     switchToMainActivity(new ProfileFragment());
                     return true;
-                } else if (item.getItemId() == R.id.navigation_chatbot) {
-                    // Si es "Localización", cambiar a LocalizationFragment
-                    switchTo(new FragmentDialogFlow());
-                    return true;
                 }
                 return false;
             }
@@ -107,13 +104,6 @@ public class ComedorActivity extends AppCompatActivity {
         startActivity(intent);
         finish();  // Finalizar ComedorActivity
     }
-    private void switchTo(FragmentActivity fragment) {
-        Intent intent = new Intent(ComedorActivity.this, MainActivity.class);
-        intent.putExtra("fragmentToLoad", fragment.getClass().getSimpleName());
-        startActivity(intent);
-        finish();  // Finalizar ComedorActivity
-    }
-
 
     @Override
     public void onBackPressed() {

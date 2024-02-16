@@ -10,7 +10,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,10 +63,6 @@ public class LocalizationActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.navigation_profile) {
                     // Si es "Perfil", cambiar a ProfileFragment
                     switchToMainActivity(new ProfileFragment());
-                    return true;
-                } else if (item.getItemId() == R.id.navigation_chatbot) {
-                    // Si es "Localización", cambiar a LocalizationFragment
-                    switchTo(new FragmentDialogFlow());
                     return true;
                 }
                 return false;
@@ -147,13 +142,6 @@ public class LocalizationActivity extends AppCompatActivity {
 
     // Método para cambiar a MainActivity con un fragmento específico
     private void switchToMainActivity(Fragment fragment) {
-        Intent intent = new Intent(LocalizationActivity.this, MainActivity.class);
-        intent.putExtra("fragmentToLoad", fragment.getClass().getSimpleName());
-        startActivity(intent);
-        finish();  // Finalizar LocalizationActivity
-    }
-
-    private void switchTo(FragmentActivity fragment) {
         Intent intent = new Intent(LocalizationActivity.this, MainActivity.class);
         intent.putExtra("fragmentToLoad", fragment.getClass().getSimpleName());
         startActivity(intent);

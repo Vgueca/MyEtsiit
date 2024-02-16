@@ -114,6 +114,10 @@ public class FragmentDialogFlowCopia extends FragmentActivity {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, PERMISSION_REQUEST_AUDIO);
             }
         }
+        if (ContextCompat.checkSelfPermission(FragmentDialogFlowCopia.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(FragmentDialogFlowCopia.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_PERMISSION);
+        }
+
         fabListening = findViewById(R.id.fb_listening);
         back_home = findViewById(R.id.volver);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);

@@ -81,6 +81,9 @@
         <activity android:name=".view.FragmentDialogFlow">
         </activity>
 
+        <activity android:name=".view.FragmentDialogFlowCopia">
+        </activity>
+
     </application>
 
 </manifest>

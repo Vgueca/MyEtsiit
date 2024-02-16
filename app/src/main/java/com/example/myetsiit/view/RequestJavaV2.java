@@ -39,6 +39,6 @@ public class RequestJavaV2 extends AsyncTask<Void, Void, DetectIntentResponse> {
 
     @Override
     protected void onPostExecute(DetectIntentResponse response) {
-        ((FragmentDialogFlow) activity).callbackV2(response);
+        ((FragmentDialogFlowCopia) activity).callbackV2(response);
     }
 }

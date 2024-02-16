@@ -1,33 +1,76 @@
 package com.example.myetsiit.view;
 
+import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.net.Uri;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.speech.RecognitionListener;
+import android.util.Log;
+import java.io.InputStream;
+import android.speech.tts.TextToSpeech;
+
+import java.util.ArrayList;
+import androidx.annotation.Nullable;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.api.gax.core.FixedCredentialsProvider;
+import com.google.cloud.dialogflow.v2.DetectIntentResponse;
+import com.google.cloud.dialogflow.v2.QueryInput;
+import com.google.cloud.dialogflow.v2.SessionName;
+import com.google.cloud.dialogflow.v2.SessionsClient;
+import com.google.cloud.dialogflow.v2.SessionsSettings;
+import com.google.cloud.dialogflow.v2.TextInput;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.auth.oauth2.ServiceAccountCredentials;
+import android.os.AsyncTask;
 
 import com.example.myetsiit.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.util.UUID;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton mainButton;
@@ -53,15 +96,10 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment;
             if (fragmentToLoad.equals(ProfileFragment.class.getSimpleName())) {
                 fragment = new ProfileFragment();
-                loadFragment(fragment);
-            }else if(fragmentToLoad.equals(HomeFragment.class.getSimpleName())){
+            }else {
                 fragment = new HomeFragment();  // Cargar HomeFragment por defecto
-                loadFragment(fragment);
-            }else{
-                FragmentActivity fragment_activity = new FragmentDialogFlow();
-                loadFragment_Activity(fragment_activity.getClass());
             }
-
+            loadFragment(fragment);
         } else {
             // Si no hay fragmento especificado, cargar el fragmento por defecto
             //loadFragment(new HomeFragment());
@@ -144,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                         isHome = false;
                         return true;
                     } else if(item.getItemId() == R.id.navigation_chatbot) {
-                        Intent chat = new Intent(getApplicationContext(), FragmentDialogFlow.class);
+                        Intent chat = new Intent(getApplicationContext(), FragmentDialogFlowCopia.class);
                         animacion = ActivityOptions.makeCustomAnimation(MainActivity.this, R.anim.fade_in, R.anim.fade_out);
                         startActivity(chat, animacion.toBundle());
                     }
@@ -167,15 +205,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment);
-        fragmentTransaction.addToBackStack(null);  // Agregar transacción a la pila para que el botón de retroceso funcione
         fragmentTransaction.commit();
     }
-    private void loadFragment_Activity(Class<? extends FragmentActivity> activityClass) {
-        // Iniciar la actividad
-        Intent intent = new Intent(MainActivity.this, activityClass);
-        startActivity(intent);
-    }
-
 
     private void vibratePhone() {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

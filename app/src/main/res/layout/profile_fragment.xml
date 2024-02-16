@@ -76,7 +76,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estudiante de Ingeniería Informática"
+            android:text="Estudiante de Ingeniería Informática "
             android:textStyle="bold"
             android:textSize="19sp" />
 
